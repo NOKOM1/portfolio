@@ -6,6 +6,7 @@
   const tabs=[...document.querySelectorAll('[data-slide]')];
   const prev=document.querySelector('#gallery-prev'),next=document.querySelector('#gallery-next');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)');
+  const inactive=()=>reduce.matches || document.documentElement.classList.contains("quiet-mode");
   let current=-1,frame=0;
   function update(){
     frame=0;
@@ -22,6 +23,7 @@
     });
     if(current===index)return;
     current=index;
+    const progress=document.querySelector(".gallery-progress span");if(progress)progress.style.transform=`scaleX(${(index+1)/slides.length})`;
     const data=slides[index].dataset;
     document.querySelector('#demo-title').textContent=data.title;
     document.querySelector('#demo-description').textContent=data.description;
@@ -34,7 +36,7 @@
   function go(index){
     index=Math.max(0,Math.min(slides.length-1,index));
     const slide=slides[index];
-    track.scrollTo({left:slide.offsetLeft-(track.clientWidth-slide.offsetWidth)/2,behavior:reduce.matches?'auto':'smooth'});
+    track.scrollTo({left:slide.offsetLeft-(track.clientWidth-slide.offsetWidth)/2,behavior:inactive()?'auto':'smooth'});
   }
   prev.addEventListener('click',()=>go(current-1));next.addEventListener('click',()=>go(current+1));
   tabs.forEach((tab,index)=>tab.addEventListener('click',()=>go(index)));
@@ -47,6 +49,7 @@
   });
   addEventListener('resize',()=>{go(Math.max(0,current));schedule()},{passive:true});
   reduce.addEventListener('change',schedule);
+  document.addEventListener('gallerynext',()=>go((current+1)%slides.length));
   update();
   const nav=[...document.querySelectorAll('.roadmap a')];
   let navFrame=0;

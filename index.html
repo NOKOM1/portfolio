@@ -2,12 +2,12 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#13050e">
+  <meta name="theme-color" content="#13050e"><script>try{if(localStorage.getItem("denis-theme")==="light")document.documentElement.dataset.theme="light"}catch{}</script>
   <meta name="description" content="Денис — сайты и Telegram-боты. Посмотрите демо в галерее и напишите в Telegram: @Nokom1.">
   <title>Денис — сайты и Telegram-боты</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
-  <script src="gallery.js" defer></script><script src="waves.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=centered-scatter">
+  <script src="gallery.js?v=centered-scatter" defer></script><script src="waves.js?v=centered-scatter" defer></script><script src="scatter.js" defer></script><script src="dock.js" defer></script>
 </head>
 <body id="top">
   <canvas id="wave-background" aria-hidden="true"></canvas>
@@ -26,7 +26,7 @@
     </section>
     <section id="demos" class="demos" aria-labelledby="demos-title">
       <div class="section-heading wrap"><div><p class="eyebrow">02 / ДЕМО САЙТОВ</p><h2 id="demos-title">Смотри.<br><span>Листай. Открывай.</span></h2></div><p class="gallery-hint">Свайпом или кнопками.<br>Нажми на превью, чтобы открыть сайт.</p></div>
-      <div class="gallery" aria-roledescription="карусель">
+      <div class="gallery-scene"><div class="gallery-stage"><div class="gallery" aria-roledescription="карусель">
         <div class="gallery-track" tabindex="0" role="region" aria-label="Галерея демо-сайтов. Используйте свайп или стрелки клавиатуры">
           <article class="slide" data-title="Личное портфолио" data-description="Этот сайт: представление, демо и контакт." data-kind="ЛИЧНЫЙ ПРОЕКТ" aria-roledescription="слайд" aria-label="1 из 3. Личное портфолио">
             <a class="gallery-shot" href="https://nokom1.github.io/portfolio/" target="_blank" rel="noopener noreferrer" aria-label="Открыть личное портфолио в новой вкладке"><div class="preview-bar" aria-hidden="true"><span>denis / portfolio</span><span>01</span></div><img src="portfolio-preview.jpg" width="1265" height="712" alt="Главная страница портфолио Дениса" fetchpriority="high"><span class="open-label" aria-hidden="true">Открыть сайт</span></a>
@@ -38,12 +38,12 @@
             <a class="gallery-shot" href="demo-signal.html" target="_blank" rel="noopener noreferrer" aria-label="Открыть демо-сайт Сигнал в новой вкладке"><div class="preview-bar" aria-hidden="true"><span>signal / demo</span><span>03</span></div><img src="signal-preview.jpg" width="1265" height="712" alt="Главная страница демо-сайта Сигнал" loading="lazy"><span class="open-label" aria-hidden="true">Открыть демо</span></a>
           </article>
         </div>
-        <div class="gallery-info wrap"><div class="caption" aria-live="polite" aria-atomic="true"><p id="demo-kind">ЛИЧНЫЙ ПРОЕКТ</p><h3 id="demo-title">Личное портфолио</h3><p id="demo-description">Этот сайт: представление, демо и контакт.</p></div><div class="gallery-controls"><span id="gallery-count" aria-hidden="true">01 / 03</span><button type="button" id="gallery-prev" aria-label="Предыдущее демо">Назад</button><button type="button" id="gallery-next" aria-label="Следующее демо">Дальше</button></div></div>
-        <nav class="gallery-tabs wrap" aria-label="Выбрать демо"><button type="button" data-slide="0" aria-pressed="true">01 <span>Портфолио</span></button><button type="button" data-slide="1" aria-pressed="false">02 <span>Форма</span></button><button type="button" data-slide="2" aria-pressed="false">03 <span>Сигнал</span></button></nav>
-      </div>
+        <div class="gallery-info wrap"><div class="caption" aria-live="polite" aria-atomic="true"><p id="demo-kind">ЛИЧНЫЙ ПРОЕКТ</p><h3 id="demo-title">Личное портфолио</h3><p id="demo-description">Этот сайт: представление, демо и контакт.</p></div><div class="gallery-controls"><span id="gallery-count" aria-hidden="true">01 / 03</span><button type="button" id="gallery-prev" aria-label="Назад: предыдущее демо">Назад</button><button type="button" id="gallery-next" aria-label="Дальше: следующее демо">Дальше</button></div></div>
+        <div class="gallery-progress" aria-hidden="true"><span></span></div><nav class="gallery-tabs wrap" aria-label="Выбрать демо"><button type="button" data-slide="0" aria-pressed="true">01 <span>Портфолио</span></button><button type="button" data-slide="1" aria-pressed="false">02 <span>Форма</span></button><button type="button" data-slide="2" aria-pressed="false">03 <span>Сигнал</span></button></nav>
+      </div></div></div>
     </section>
     <section id="contact" class="contact wrap" aria-labelledby="contact-title"><div class="contact-inner"><p class="eyebrow">03 / КОНТАКТ</p><h2 id="contact-title">Нужен сайт<br>или <span>бот?</span></h2><a class="telegram" href="https://t.me/Nokom1" target="_blank" rel="noopener noreferrer">@Nokom1</a><p class="contact-note">Напиши в Telegram. Обсудим задачу.</p></div></section>
   </main>
   <footer class="footer wrap"><span>Денис / 2026</span><a href="#top">Наверх</a></footer>
-</body>
+<nav class="bottom-dock" aria-label="Быстрые действия"><a href="#about" data-section="about"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m4 11 8-7 8 7M7 9v11h10V9"/></svg><span>Начало</span></a><a href="#demos" data-section="demos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg><span>Демо</span></a><button type="button" id="theme-toggle" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16Z" fill="currentColor" stroke="none"/></svg><span>Светлее</span></button><i aria-hidden="true"></i><button type="button" id="quiet-toggle" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg><span>Тише</span></button><a href="#contact" data-section="contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m3 11 18-8-6 18-4-7-8-3Zm8 3L21 3"/></svg><span>Связь</span></a></nav></body>
 </html>

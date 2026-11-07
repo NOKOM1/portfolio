@@ -6,6 +6,7 @@
   if (!canvas || !ctx) return;
   const toggle = document.getElementById('wave-toggle');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const quiet = () => document.documentElement.classList.contains('quiet-mode');
   const pointer = {x: -1000, y: -1000, targetX: -1000, targetY: -1000};
   let width = 1, height = 1, phase = 0, lastTime = 0, frame = 0, paused = false;
   let waveColor = '#72394e', background = '#13050e';
@@ -37,7 +38,7 @@
       ctx.stroke();
     }
   }
-  function running() { return !document.hidden && !reduce.matches && !paused; }
+  function running() { return !document.hidden && !reduce.matches && !paused && !quiet(); }
   function tick(time) {
     frame = 0;
     if (!running()) return;
@@ -53,9 +54,9 @@
   function reconcile() {
     cancelAnimationFrame(frame);
     frame = 0;
-    const stopped = paused || reduce.matches;
+    const stopped = paused || reduce.matches || quiet();
     if (toggle) {
-      toggle.disabled = reduce.matches;
+      toggle.disabled = reduce.matches || quiet();
       toggle.textContent = stopped ? 'Фон: пауза' : 'Фон: движение';
       toggle.setAttribute('aria-pressed', String(stopped));
       toggle.setAttribute('aria-label', toggle.textContent);
@@ -88,12 +89,14 @@
     if (!event.relatedTarget) pointer.targetX = pointer.targetY = -1000;
   }, {passive: true});
   document.addEventListener('visibilitychange', reconcile);
+  document.addEventListener('themechange', resize);
+  document.addEventListener('quietchange', reconcile);
   document.addEventListener('wavepause', event => {
     paused = event.detail === true;
     reconcile();
   });
   toggle?.addEventListener('click', () => {
-    if (reduce.matches) return;
+    if (reduce.matches || quiet()) return;
     paused = !paused;
     reconcile();
   });
