@@ -1,9 +1,7 @@
 # Портфолио Дениса
 
-Сайты и Telegram-боты. Контакт: https://t.me/Nokom1.
+https://nokom1.github.io/portfolio/
 
-Статический сайт, сборка и зависимости не требуются. Для GitHub Pages: Settings → Pages → Deploy from a branch → main → /(root).
+Структура: представление → галерея демо → Telegram-контакт. Единый шрифт Golos Text. Галерея перелистывается свайпом, кнопками или клавишами. Фон с волнистыми линиями можно остановить; системный reduced-motion имеет приоритет. Демо подписаны, готовый Telegram-бот не заявляется.
 
-Два примера подписаны как демонстрационные концепты. Звука, аналитики и отправки данных нет; описание из конструктора копируется только по кнопке.
-
-Эффекты: native adaptations of 21st Arc Spread Hero (daiwiikharihar) and Project Showcase (jatin-yadav05); see original components at 21st.dev.
+Статический HTML/CSS/JS без сборки. Для Pages: main, /(root), .nojekyll. Галерея и фон адаптированы по предоставленным пользователем TiltedGridHero и Waves.
